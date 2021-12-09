@@ -188,7 +188,7 @@ Without the dedicated IP address feature enabled, traffic coming out of AEM as a
 >
 >The Splunk forwarding capability is not possible from a dedicated egress IP address.
 
-Configuring dedicated egress IP address is identical to [flexible port egress](#configuring-flexible-port-egress-provision).
+Configuring dedicated egress IP address is identical to [flexible port egress](#configuring-flexible-port-egress-provision), in that you will first issue a `PUT /api/program/<program_id>/network/<network_id>` request to provision the program-level infrastructure, and that once it is ready, you will enable the infrastructure in each environment in the program by issuing as many `PUT /program/<program_id>/environment/<environment_id>/advancedNetworking` requests.
 
 The main difference is that traffic will always egress from a dedicated, unique IP. To find that IP, use a DNS resolver to identify the IP address associated with `p{PROGRAM_ID}.external.adobeaemcloud.com`. The IP address is not expected to change, but if it needs to change in the future, advanced notification will be provided.
 
